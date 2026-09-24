@@ -1,0 +1,83 @@
+@use "./style/variables.scss" as v;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: 'Inter', -apple-system, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: v.$color-bg-main;
+    color: v.$color-text-main;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+        opacity: 0.85;
+    }
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: v.$color-bg-main;
+}
+
+::-webkit-scrollbar-thumb {
+    background: v.$color-border;
+    border-radius: v.$radius-sm;
+
+    &:hover {
+        background: v.$color-text-muted;
+    }
+}
+
+// Наш глобальный контейнер
+.container {
+    width: 100%;
+    max-width: v.$container-max-width;
+    margin: 0 auto;
+    padding-left: v.$container-padding-desktop;
+    padding-right: v.$container-padding-desktop;
+
+    @media (max-width: (v.$breakpoint-tablet - 1px)) {
+        padding-left: v.$container-padding-mobile;
+        padding-right: v.$container-padding-mobile;
+    }
+}

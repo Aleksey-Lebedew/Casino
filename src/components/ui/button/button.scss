@@ -1,0 +1,56 @@
+@use "../../../style/variables.scss" as v;
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    font-weight: 600;
+    border: none;
+    border-radius: v.$radius-sm; 
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease, color 0.2s ease, opacity 0.2s ease;
+    white-space: nowrap;
+
+    &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
+
+    &:active:not(:disabled) {
+        transform: scale(0.97); 
+    }
+}
+
+.primary {
+    background-color: v.$color-primary;
+    color: v.$color-bg-main; 
+
+    &:hover:not(:disabled) {
+        background-color: v.$color-primary-hover; 
+    }
+}
+
+.secondary {
+    background: transparent;
+    color: v.$color-text-muted; 
+
+    &:hover:not(:disabled) {
+        color: v.$color-text-main;
+    }
+}
+
+.sm {
+    font-size: 13px;
+    padding: 6px 14px;
+}
+
+.md {
+    font-size: 14px;
+    padding: 10px 20px;
+}
+
+.lg {
+    font-size: 16px;
+    padding: 14px v.$container-padding-desktop;
+}

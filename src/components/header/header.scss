@@ -1,0 +1,36 @@
+@use "../../style/variables.scss" as v;
+
+.header {
+  background-color: v.$color-bg-card;
+  border-bottom: 1px solid v.$color-border;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+
+  @media (max-width: (v.$breakpoint-tablet - 1px)) {
+    height: 60px;
+  }
+}
+
+.header_wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.header__auth {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  @media (max-width: (v.$breakpoint-tablet - 1px)) {
+    display: none;
+  }
+}

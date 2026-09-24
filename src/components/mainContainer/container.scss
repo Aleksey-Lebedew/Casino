@@ -1,0 +1,18 @@
+@use "../../style/variables.scss" as v;
+
+.container {
+    border: 1px solid black;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: v.$container-max-width;
+    margin: 0 auto;
+    padding-left: v.$container-padding-desktop;
+    padding-right: v.$container-padding-desktop;
+
+
+    
+    @media (max-width: (v.$breakpoint-tablet - 1px)) {
+        padding-left: v.$container-padding-mobile;
+        padding-right: v.$container-padding-mobile;
+    }
+}
