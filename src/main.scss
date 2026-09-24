@@ -34,6 +34,11 @@ a {
         opacity: 0.85;
     }
 }
+ul {
+  list-style: none; 
+  margin: 0;
+  padding: 0;
+}
 
 input,
 button,
@@ -68,7 +73,6 @@ button {
     }
 }
 
-// Наш глобальный контейнер
 .container {
     width: 100%;
     max-width: v.$container-max-width;
