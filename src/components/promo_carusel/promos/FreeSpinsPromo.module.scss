@@ -1,0 +1,59 @@
+@use '../styles/tokens' as *;
+@use '../styles/mixins' as *;
+
+.promo {
+  @include promo-layout;
+  background: linear-gradient(135deg, #081a14 0%, #123626 100%);
+}
+
+.content {
+  @include promo-content;
+}
+
+.title {
+  @include promo-title;
+}
+
+.subtitle {
+  @include promo-subtitle;
+}
+
+.art {
+  @include promo-art;
+}
+
+// "Барабан" слот-машины — три ячейки flex-контейнера с символами
+.reel {
+  display: flex;
+  border: 2px solid $color-accent;
+  border-radius: $radius-sm;
+  overflow: hidden;
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 90px;
+    font-size: 36px;
+    font-weight: 800;
+    background: $color-bg-deep;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &:nth-child(1) {
+      color: $color-gold;
+    }
+
+    &:nth-child(2) {
+      color: $color-accent;
+    }
+
+    &:nth-child(3) {
+      color: $color-gold;
+    }
+  }
+}

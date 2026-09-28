@@ -1,0 +1,63 @@
+@use '../styles/tokens' as *;
+@use '../styles/mixins' as *;
+
+.promo {
+  @include promo-layout;
+  background: linear-gradient(135deg, $color-bg-deep 0%, #1c3a34 100%);
+}
+
+.content {
+  @include promo-content;
+}
+
+.title {
+  @include promo-title;
+}
+
+.subtitle {
+  @include promo-subtitle;
+}
+
+.art {
+  @include promo-art;
+  width: 200px;
+  height: 160px;
+}
+
+// Фишки — просто круги с пунктирным внутренним кольцом, без единой картинки
+.chip {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 10px;
+    border-radius: 50%;
+    border: 2px dashed rgba(255, 255, 255, 0.65);
+  }
+}
+
+.chipGreen {
+  background: radial-gradient(circle at 35% 30%, lighten($color-accent, 12%), $color-accent);
+  top: 10px;
+  right: 60px;
+  z-index: 3;
+}
+
+.chipRed {
+  background: radial-gradient(circle at 35% 30%, lighten($color-red, 12%), $color-red);
+  top: 50px;
+  right: 120px;
+  z-index: 1;
+}
+
+.chipGold {
+  background: radial-gradient(circle at 35% 30%, lighten($color-gold, 12%), $color-gold);
+  top: 60px;
+  right: 20px;
+  z-index: 2;
+}

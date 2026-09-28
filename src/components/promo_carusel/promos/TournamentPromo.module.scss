@@ -1,0 +1,32 @@
+@use '../styles/tokens' as *;
+@use '../styles/mixins' as *;
+
+.promo {
+  @include promo-layout;
+  background: linear-gradient(135deg, #0a161e 0%, #123028 100%);
+}
+
+.content {
+  @include promo-content;
+}
+
+.title {
+  @include promo-title;
+}
+
+.subtitle {
+  @include promo-subtitle;
+}
+
+.art {
+  @include promo-art;
+  width: 150px;
+  height: 150px;
+}
+
+.trophy {
+  width: 100%;
+  height: 100%;
+  color: $color-gold;
+  filter: drop-shadow(0 8px 20px rgba(240, 185, 80, 0.35));
+}

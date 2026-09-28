@@ -1,0 +1,84 @@
+@use "../../style/variables.scss" as v;
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  background-color: v.$color-bg-card;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius-main;
+  overflow: hidden;
+  width: calc((100% - (v.$gap-md * 4)) / 5);
+  flex-shrink: 0;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: v.$color-bg-card-hover;
+  }
+
+  @media (max-width: (v.$breakpoint-desktop - 1px)) {
+    width: calc((100% - (v.$gap-md * 2)) / 3);
+  }
+
+  @media (max-width: (v.$breakpoint-tablet - 1px)) {
+    width: calc((100% - (v.$gap-md * 1)) / 2);
+  }
+
+  @media (max-width: (v.$breakpoint-mobile - 1px)) {
+    width: 100%;
+  }
+}
+
+.category-card__preview {
+  height: 120px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.category-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.category-card__content {
+  display: flex;
+  flex-direction: column;
+  padding: v.$gap-lg;
+  flex-grow: 1;
+  gap: v.$gap-sm;
+}
+
+.category-card__title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: v.$color-text-main;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.category-card__desc {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+  color: v.$color-text-muted;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 36px;
+}
+
+.category-card__actions {
+  margin-top: auto;
+  width: 100%;
+
+  .btn {
+    width: 100%;
+  }
+}

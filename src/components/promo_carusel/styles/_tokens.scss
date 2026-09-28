@@ -1,0 +1,28 @@
+// Дизайн-токены под тему сайта (тёмный фон + зелёный акцент).
+// Значения примерные — под ваш мокап. Если в проекте уже есть
+// свои переменные (цвета бренда), замените их здесь в одном месте —
+// поменяется сразу во всех компонентах карусели.
+
+$color-bg-deep: #0f1729;
+$color-bg-card: #1a2540;
+$color-border: #2a3654;
+
+$color-text-primary: #f5f7fa;
+$color-text-secondary: #aab4c3;
+
+$color-accent: #16c98d;
+$color-accent-hover: #13b47d;
+$color-accent-contrast: #0b1220;
+
+$color-gold: #f0b950;
+$color-purple: #a56ff0;
+$color-red: #e0546f;
+
+$radius-sm: 8px;
+$radius-md: 14px;
+$radius-pill: 999px;
+
+$space-1: 8px;
+$space-2: 16px;
+$space-3: 24px;
+$space-4: 32px;

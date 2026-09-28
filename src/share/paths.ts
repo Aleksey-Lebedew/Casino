@@ -1,16 +1,17 @@
 export const PATHS = {
+
+    // sidebar
     main: () => '/',
-    postById: (id: string) => `/page/posts/${id}`,
-    counter: () => '/counter',
-    searchPage: () => '/search',
+    // games: (id: string) => `/games/game/${id}`,
+    allWinnings: () => '/winnings',
+    profile: () => '/profile',
 
     // auth
-    signIn: () => '/signIn',
-    confirmed: () => '/confirmed',
-    // groups
-    groups: () => '/groups',
-    users: () => '/users',
+    // signIn: () => '/signIn',
+    // confirmed: () => '/confirmed',
+    // // groups
+    // groups: () => '/groups',
+    // users: () => '/users',
 
     //profile
-    profile: () => '/profile',
 }

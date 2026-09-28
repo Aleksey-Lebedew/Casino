@@ -1,0 +1,15 @@
+@use '../../style/variables.scss' as v;
+
+
+.app_body .container {
+  display: flex;
+  gap: v.$gap-sm;
+}
+
+.app_content {
+  flex-grow: 1;
+  width: 100%;
+  
+  min-width: 0; 
+  overflow: hidden; 
+}

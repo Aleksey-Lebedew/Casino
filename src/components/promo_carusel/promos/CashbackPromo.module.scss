@@ -1,0 +1,41 @@
+@use '../styles/tokens' as *;
+@use '../styles/mixins' as *;
+
+.promo {
+  @include promo-layout;
+  background: linear-gradient(135deg, #1a1030 0%, #2c1640 100%);
+}
+
+.content {
+  @include promo-content;
+}
+
+.title {
+  @include promo-title;
+}
+
+.subtitle {
+  @include promo-subtitle;
+}
+
+.art {
+  @include promo-art;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 260px;
+}
+
+// Крупный процент — акцент слайда, чисто типографский, без картинки
+.percent {
+  font-size: 96px;
+  font-weight: 800;
+  line-height: 1;
+  color: $color-purple;
+}
+
+.period {
+  font-size: 16px;
+  font-weight: 700;
+  color: $color-text-secondary;
+}

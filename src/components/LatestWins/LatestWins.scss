@@ -1,0 +1,125 @@
+@use "../../style/variables.scss" as v;
+
+.latest-wins {
+    background-color: v.$color-bg-card;
+    border: 1px solid v.$color-border;
+    border-radius: v.$radius-main;
+    padding: v.$gap-lg;
+    width: 100%;
+    margin-bottom: v.$gap-md;
+}
+
+.latest-wins__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: v.$gap-lg;
+    gap: v.$gap-md;
+}
+
+.latest-wins__title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: v.$gap-sm;
+    
+    .img_wrapper{
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.latest-wins__icon {
+    color: v.$color-text-muted;
+    flex-shrink: 0;
+}
+
+.latest-wins__title {
+    font-size: 16px;
+    font-weight: 700;
+    color: v.$color-text-main;
+    margin: 0;
+
+    @media (max-width: (v.$breakpoint-mobile - 1px)) {
+        font-size: 14px;
+    }
+}
+
+.latest-wins__link-all {
+    font-size: 13px;
+    font-weight: 600;
+    color: v.$color-text-muted;
+    display: flex;
+    align-items: center;
+    gap: v.$gap-xs;
+    white-space: nowrap;
+
+    &:hover {
+        color: v.$color-text-main;
+        opacity: 1;
+    }
+
+    span {
+        font-size: 15px;
+        line-height: 1;
+    }
+}
+
+.latest-wins__slider {
+    display: flex;
+    align-items: center;
+    gap: v.$gap-sm;
+    position: relative;
+
+}
+
+.latest-wins__track {
+    display: flex;
+    align-items: center;
+    gap: v.$gap-md;
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.latest-wins__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: v.$color-bg-main;
+    border: 1px solid v.$color-border;
+    border-radius: v.$radius-sm;
+    color: v.$color-text-muted;
+    font-size: 20px;
+    line-height: 1;
+    flex-shrink: 0;
+    z-index: 2;
+
+    &:hover:not(:disabled) {
+        background-color: v.$color-bg-card-hover;
+        color: v.$color-text-main;
+        border-color: v.$color-primary;
+    }
+
+    &:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+
+    &--prev {
+        padding-right: 2px;
+    }
+
+    &--next {
+        padding-left: 2px;
+    }
+
+    @media (max-width: (v.$breakpoint-tablet - 1px)) {
+        display: none;
+    }
+}

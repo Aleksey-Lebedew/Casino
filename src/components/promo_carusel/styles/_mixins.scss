@@ -1,0 +1,67 @@
+@use 'tokens' as *;
+
+// Базовая раскладка промо-слайда: текст слева, декоративная графика
+// справа. Вынесено в миксин, чтобы все 5 слайдов держали одинаковые
+// отступы и сетку — если решите поменять паддинги, правите один раз
+// здесь, а не в каждом из пяти файлов.
+@mixin promo-layout {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-4;
+  min-height: 320px;
+  padding: $space-4 48px;
+  overflow: hidden;
+  color: $color-text-primary;
+
+  @media (max-width: 720px) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: $space-3;
+    min-height: unset;
+  }
+}
+
+@mixin promo-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $space-2;
+  max-width: 520px;
+}
+
+@mixin promo-art {
+  position: relative;
+  flex-shrink: 0;
+
+  // На мобильном экране убираем декор и оставляем заголовок с кнопкой —
+  // так текст не сжимается до нечитаемого размера ради картинки.
+  @media (max-width: 720px) {
+    display: none;
+  }
+}
+
+@mixin promo-title {
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0;
+
+  @media (max-width: 720px) {
+    font-size: 28px;
+  }
+}
+
+@mixin promo-subtitle {
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 0;
+  color: $color-text-secondary;
+
+  @media (max-width: 720px) {
+    font-size: 15px;
+  }
+}

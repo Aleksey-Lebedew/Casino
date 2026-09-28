@@ -1,16 +1,20 @@
 import { Route, Routes } from 'react-router-dom'
 import './App.scss'
 import { PATHS } from './share/paths'
-import { Main } from './pages/main'
+import { HomePage } from './pages/homePage/homePage'
+import { Layout } from './pages/layout/layout'
 
 function App() {
   return (
-    <><Routes>
-      <Route path={PATHS.main()} element={<Main />} />
-      {/* <Route path={PATHS.main()} element={<SignIn />} /> */}
-      {/* <Route path={PATHS.main()} element={<SignUp />} /> */}
-      {/* <Route path={PATHS.main()} element={<Main />} /> */}
-    </Routes></>
+    <>
+      <Routes>
+        <Route element={<Layout />} >
+          <Route index element={<HomePage />} />
+          {/* <Route path={PATHS.main()} element={<SignIn />} /> */}
+          {/* <Route path={PATHS.main()} element={<SignUp />} /> */}
+        </Route>
+      </Routes >
+    </>
   )
 }
 
