@@ -8,10 +8,10 @@ interface WinnerCardProps {
     nameGame: string;
 }
 
-export const WinnerCard = (props:WinnerCardProps) => {
-    const {image, nameWinner, cash, nameGame} = props;
-    
-    return(
+export const WinnerCard = (props: WinnerCardProps) => {
+    const { image, nameWinner, cash, nameGame } = props
+
+    return (
         <div className="card">
             <div className="img_wrapper">
                 <img src={image} alt={nameGame} />

@@ -3,11 +3,14 @@ import { createRoot } from 'react-dom/client'
 import './main.scss'
 import App from './App.tsx'
 import { BrowserRouter } from 'react-router-dom'
+import { ApiProvider } from './context/contextAPI.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+      <ApiProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ApiProvider>
   </StrictMode>,
 )

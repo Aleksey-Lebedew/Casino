@@ -4,11 +4,14 @@ import { PromoCarouselSection } from "../../components/promo_carusel/PromoCarous
 
 
 export const HomePage = () => {
+    
     return (
         <>
             <PromoCarouselSection />
             <LatestWins />
-            <PopularGame/>
+            <PopularGame />
         </>
     )
 }
+
+
