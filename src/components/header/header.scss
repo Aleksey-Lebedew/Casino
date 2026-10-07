@@ -24,6 +24,11 @@
 .header_wrapper {
   display: flex;
   align-items: center;
+  gap: 12px;
+}
+
+.header__profile-link {
+  white-space: nowrap;
 }
 
 .header__auth {

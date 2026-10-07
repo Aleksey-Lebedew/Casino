@@ -1,0 +1,177 @@
+.slot-game {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+
+    &__header {
+        margin-bottom: 20px;
+        
+        .btn-back {
+            display: inline-flex;
+            background: #1e2538;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            color: #ccd4e0;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.2s ease;
+
+            &:hover { background: #29324c; color: #ffffff; }
+        }
+    }
+}
+
+.slot-machine-wrapper {
+    flex: 1;
+    background: #161b26; // Твой фирменный фон карточек
+    border-radius: 12px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+// Корпус автомата с закругленным верхом по форме картинки
+.slot-machine {
+    width: 320px;
+    background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%); // Золотой градиент корпуса
+    border: 6px solid #886206;
+    border-radius: 60px 60px 16px 16px; // Закругленный верх (арка)
+    padding: 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+
+    &__top-logo {
+        font-size: 20px;
+        font-weight: 800;
+        color: #fff;
+        text-shadow: 0 0 10px #ff0000, 2px 2px 2px #000;
+        letter-spacing: 1.5px;
+        font-family: sans-serif;
+    }
+
+    &__paytable {
+        background: #111520;
+        width: 100%;
+        border-radius: 6px;
+        padding: 8px;
+        box-sizing: border-box;
+        font-size: 11px;
+        color: #98a7bf;
+        display: flex;
+        justify-content: space-around;
+        border: 2px solid #886206;
+    }
+
+    // Экран, где стоят три барабана
+    &__screen {
+        width: 100%;
+        background: #10141e;
+        border: 4px solid #242f47;
+        border-radius: 8px;
+        padding: 16px;
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.9);
+    }
+
+    // Нижнее неоновое табло результатов
+    &__display {
+        width: 100%;
+        background: #000;
+        border: 2px solid #242f47;
+        border-radius: 6px;
+        padding: 12px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 700;
+        color: #10b981;
+        text-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+        min-height: 44px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .pulse-text {
+            animation: textPulse 0.5s infinite alternate;
+            color: #d4af37;
+        }
+    }
+}
+
+// Отдельные барабаны слотов
+.slot-reel {
+    background: linear-gradient(to bottom, #fff 0%, #e2e8f0 50%, #fff 100%);
+    height: 70px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 4px 8px rgba(0,0,0,0.3), inset 0 -4px 8px rgba(0,0,0,0.3);
+    overflow: hidden;
+
+    .slot-symbol {
+        font-size: 32px;
+        line-height: 1;
+    }
+
+    // Анимация кручения: разная скорость, чтобы останавливались слева направо!
+    &--spinning-0 { animation: spinReel 0.1s infinite linear; }
+    &--spinning-1 { animation: spinReel 0.12s infinite linear; }
+    &--spinning-2 { animation: spinReel 0.14s infinite linear; }
+}
+
+// Ключевые кадры для эффекта размытого кручения барабана
+@keyframes spinReel {
+    0% { transform: translateY(-10px) scaleY(1); filter: blur(0px); }
+    50% { transform: translateY(10px) scaleY(1.2); filter: blur(4px); } // Имитируем скорость блюром
+    100% { transform: translateY(-10px) scaleY(1); filter: blur(0px); }
+}
+
+@keyframes textPulse {
+    0% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+// Фирменная зеленая кнопка запуска из твоего макета
+.btn-spin-action {
+    width: 100%;
+    max-width: 260px;
+    padding: 14px 0;
+    background: #10b981;
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+    transition: all 0.2s ease;
+
+    &:hover:not(:disabled) {
+        background: #13ca8f;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(16, 185, 129, 0.35);
+    }
+
+    &:disabled {
+        background: #242f47;
+        color: #62728c;
+        cursor: not-allowed;
+        box-shadow: none;
+        transform: none;
+    }
+}

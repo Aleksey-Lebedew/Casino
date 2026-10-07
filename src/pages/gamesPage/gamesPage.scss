@@ -1,0 +1,42 @@
+@use "../../style/variables.scss" as v;
+
+.games-page {
+  width: 100%;
+}
+
+.games-page__title {
+  margin: 0 0 v.$gap-lg;
+  color: v.$color-text-main;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.games-page__empty-note {
+  margin: 0 0 v.$gap-lg;
+  color: v.$color-text-muted;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.games-page__grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: v.$gap-md;
+
+  > .category-card {
+    width: 100%;
+    min-width: 0;
+  }
+
+  @media (max-width: (v.$breakpoint-desktop - 1px)) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @media (max-width: (v.$breakpoint-tablet - 1px)) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: (v.$breakpoint-mobile - 1px)) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

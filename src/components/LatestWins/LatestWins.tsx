@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { PATHS } from "../../share/paths";
 import { WinnerCard } from "../winnerCard/winnerCard";
 import "./LatestWins.scss";
-import { apiContext } from "../../context/contextAPI";
+import { apiContext } from "../../context/apiContext";
 
 
 // const mockWins = [

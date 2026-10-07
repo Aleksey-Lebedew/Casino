@@ -1,0 +1,68 @@
+@use "../../style/variables.scss" as v;
+
+.profile-page {
+  width: 100%;
+}
+
+.profile-page__header {
+  margin-bottom: v.$gap-xl;
+}
+
+.profile-page__eyebrow {
+  margin: 0 0 v.$gap-xs;
+  color: v.$color-primary;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.profile-page__title {
+  margin: 0 0 v.$gap-sm;
+  color: v.$color-text-main;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.profile-page__description,
+.profile-page__status-description {
+  margin: 0;
+  color: v.$color-text-muted;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.profile-page__status {
+  display: flex;
+  align-items: center;
+  gap: v.$gap-lg;
+  padding: v.$gap-xl;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius-sm;
+  background: v.$color-bg-card;
+}
+
+.profile-page__avatar {
+  display: grid;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 50%;
+  background: v.$color-bg-card-hover;
+  color: v.$color-text-gold;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.profile-page__status-title {
+  margin: 0 0 v.$gap-xs;
+  color: v.$color-text-main;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+@media (max-width: (v.$breakpoint-mobile - 1px)) {
+  .profile-page__status {
+    align-items: flex-start;
+    padding: v.$gap-lg;
+  }
+}

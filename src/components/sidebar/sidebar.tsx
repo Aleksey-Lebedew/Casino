@@ -4,7 +4,7 @@ import './sideBar.scss'
 
 const menuItems = [
     { id: 'main', label: 'Главная', path: PATHS.main },
-    // { id: 'games', label: 'Игры', path: PATHS.games },
+    { id: 'games', label: 'Игры', path: PATHS.games },
     { id: 'promo', label: 'Все крупные выигрыши', path: PATHS.allWinnings },
     { id: 'profile', label: 'Профиль', path: PATHS.profile }
 ];

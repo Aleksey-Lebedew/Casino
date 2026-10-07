@@ -1,29 +1,32 @@
-import { createContext, useEffect, useState, type ReactNode } from "react";
-import { fetchGames, fetchUser } from "../api/api";
+import { useEffect, useState, type ReactNode } from "react";
+import { fetchGames, fetchUser, type ApiGame, type ApiUser } from "../api/api";
 import { Loader } from "../components/loader/loader";
-
-
-interface ApiContextType {
-    usersData: any[];
-    gamesData: any[];
-}
-
-export const apiContext = createContext<ApiContextType>({
-    usersData: [],
-    gamesData: [],
-});
+import { apiContext } from "./apiContext";
 
 export function ApiProvider({ children }: { children: ReactNode }) {
-    const [users, setUsers] = useState([]);
-    const [games, setGames] = useState([]);
+    const [users, setUsers] = useState<ApiUser[]>([]);
+    const [games, setGames] = useState<ApiGame[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
+
     useEffect(() => {
-        Promise.all([fetchUser(), fetchGames()
-        ]).then(([serverUsers, serverGames]) => {
-            setUsers(serverUsers);
-            setGames(serverGames);
-        });
+        let isActive = true;
+
+        Promise.all([fetchUser(), fetchGames()])
+            .then(([serverUsers, serverGames]) => {
+                if (!isActive) return;
+                setUsers(serverUsers);
+                setGames(serverGames);
+            })
+            .finally(() => {
+                if (isActive) setIsLoading(false);
+            });
+
+        return () => {
+            isActive = false;
+        };
     }, []);
-    if(users.length === 0 || games.length === 0){
+
+    if (isLoading) {
         return (
             <Loader/>
         )

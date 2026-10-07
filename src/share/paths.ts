@@ -2,7 +2,8 @@ export const PATHS = {
 
     // sidebar
     main: () => '/',
-    // games: (id: string) => `/games/game/${id}`,
+    games: () => '/games',
+    game: (id: string) => `/game/${id}`,
     allWinnings: () => '/winnings',
     profile: () => '/profile',
 

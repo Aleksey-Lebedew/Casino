@@ -4,14 +4,42 @@
   width: 100%;
 }
 
+.popular-games__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: v.$gap-md;
+  margin-bottom: v.$gap-lg;
+}
+
 .popular-games__title {
   font-size: 18px;
   font-weight: 700;
   color: v.$color-text-main;
-  margin-bottom: v.$gap-lg;
+  margin: 0;
 
   @media (max-width: (v.$breakpoint-mobile - 1px)) {
     font-size: 16px;
+  }
+}
+
+.popular-games__all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: v.$gap-xs;
+  color: v.$color-primary;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:hover {
+    color: v.$color-primary-hover;
+  }
+
+  &:focus-visible {
+    outline: 2px solid v.$color-primary;
+    outline-offset: 3px;
   }
 }
 

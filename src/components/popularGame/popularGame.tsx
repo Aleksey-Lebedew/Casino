@@ -1,7 +1,9 @@
 import { useContext } from "react";
 import { GameCard } from "../gameCard/gameCard";
+import { Link } from "react-router-dom";
+import { PATHS } from "../../share/paths";
 import './popularGame.scss'
-import { apiContext } from "../../context/contextAPI";
+import { apiContext } from "../../context/apiContext";
 // export const MOCK_GAMES_DATA = [
 //     {
 //         image: "https://placehold.co",
@@ -61,7 +63,12 @@ export const PopularGame = () => {
     return (
          <section className="popular-games">
             
-            <h2 className="popular-games__title">Популярные игры</h2>
+            <div className="popular-games__header">
+                <h2 className="popular-games__title">Популярные игры</h2>
+                <Link className="popular-games__all-link" to={PATHS.games()}>
+                    Полный список игр <span aria-hidden="true">→</span>
+                </Link>
+            </div>
 
             <div className="popular-games__grid">
                 {gamesData.slice(0, 5).map((game, index) => (
