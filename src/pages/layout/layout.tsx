@@ -1,13 +1,9 @@
-import { Outlet, useLocation } from "react-router-dom"
+import { Outlet } from "react-router-dom"
 import { Header } from "../../components/header/header"
 import { Sidebar } from "../../components/sideBar/sidebar"
 import './layout.scss'
 
 export const Layout = () => {
-    const { pathname } = useLocation();
-    const isRegistrationPage =
-        pathname === "/registration" || pathname.startsWith("/registration/");
-
     return (
         <div className="app">
             <Header />

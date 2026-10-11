@@ -1,10 +1,13 @@
 import { Logo } from "../ui/logo/logo"
-import Button from "../ui/button/button"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { PATHS } from "../../share/paths"
+import { useAuth } from "../../hooks/useAuth"
 import './header.scss'
 
 export const Header = () => {
+    const { user, logout } = useAuth();
+    const navigate = useNavigate();
+
     return (
         <header className="header">
             <div className="container header__container" >
@@ -14,9 +17,31 @@ export const Header = () => {
                         Личный кабинет
                     </Link>
                     <div className="header__auth">
-                        <Button variant='secondary'>Войти</Button>
-                        <Button variant='primary'>Регистрация</Button>
+                        {user ? (
+                            <>
+                                <span className="header__username">{user.username}</span>
+                                <button className="btn secondary md" type="button" onClick={logout}>
+                                    Выйти
+                                </button>
+                            </>
+                        ) : (
+                            <>
+                                <Link className="btn secondary md" to={`${PATHS.profile()}?auth=login`}>
+                                    Войти
+                                </Link>
+                                <Link className="btn primary md" to={`${PATHS.profile()}?auth=register`}>
+                                    Регистрация
+                                </Link>
+                            </>
+                        )}
                     </div>
+                    <button
+                        className="header__mobile-auth"
+                        type="button"
+                        onClick={() => navigate(user ? PATHS.profile() : `${PATHS.profile()}?auth=login`)}
+                    >
+                        {user ? user.username : 'Войти'}
+                    </button>
                 </div>
             </div>
         </header>

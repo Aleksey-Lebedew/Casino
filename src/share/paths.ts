@@ -7,6 +7,7 @@ export const PATHS = {
     allWinnings: () => '/winnings',
     winning: (id: string) => `/winnings/${id}`,
     profile: () => '/profile',
+    activate: (uid = ':uid', token = ':token') => `/activate/${uid}/${token}`,
 
     // auth
     // signIn: () => '/signIn',
