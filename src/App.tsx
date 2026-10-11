@@ -6,6 +6,7 @@ import { Layout } from './pages/layout/layout'
 import { GamePage } from './pages/gamePage/gamePage'
 import { GamesPage } from './pages/gamesPage/gamesPage'
 import { ProfilePage } from './pages/profilePage/profilePage'
+import { WinningsPage } from './pages/winningsPage/winningsPage'
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path={PATHS.games()} element={<GamesPage />} />
           <Route path={PATHS.game(':id')} element={<GamePage />} />
+          <Route path={PATHS.allWinnings()} element={<WinningsPage />} />
+          <Route path={PATHS.winning(':id')} element={<WinningsPage />} />
           <Route path={PATHS.profile()} element={<ProfilePage />} />
           {/* <Route path={PATHS.main()} element={<SignIn />} /> */}
           {/* <Route path={PATHS.main()} element={<SignUp />} /> */}

@@ -1,11 +1,15 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { apiContext } from "../../context/apiContext";
 import "./gamePage.scss";
 
 // Возможные символы на барабанах
 const SYMBOLS = ["7️⃣", "🍒", "🍋", "🔔", "💎", "🍇"];
 
 export const GamePage = () => {
+    const { id } = useParams<{ id: string }>();
+    const { gamesData } = useContext(apiContext);
+    const game = gamesData.find((item) => item.id === id);
     // Храним текущие символы на трех барабанах (по умолчанию везде семерки)
     const [reels, setReels] = useState(["🍒", "🍒", "🍒"]);
     const [isSpinning, setIsLoading] = useState(false);
@@ -40,6 +44,17 @@ export const GamePage = () => {
         }, 1500);
     };
 
+    if (!game) {
+        return (
+            <div className="slot-game">
+                <div className="slot-game__header">
+                    <Link to="/" className="btn-back">‹ Назад в лобби</Link>
+                </div>
+                <p className="slot-game__unavailable">Игра недоступна в каталоге.</p>
+            </div>
+        );
+    }
+
     return (
         <div className="slot-game">
             {/* Шапка */}
@@ -52,7 +67,7 @@ export const GamePage = () => {
                 
                 {/* Корпус автомата (как на твоем фото: золотой/темный с аркой сверху) */}
                 <div className="slot-machine">
-                    <div className="slot-machine__top-logo">LUCKY SLOT</div>
+                    <div className="slot-machine__top-logo">{game.title}</div>
                     
                     {/* Табло выплат */}
                     <div className="slot-machine__paytable">

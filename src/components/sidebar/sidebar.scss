@@ -8,7 +8,7 @@
   background-color: v.$color-bg-card;
   border-right: 1px solid v.$color-border;
   padding: 24px 16px;
-  height: calc(100vh - 72px);
+  height: 100%;
   transition: all 0.3s ease;
 
   @media (max-width: (v.$breakpoint-tablet - 1px)) {

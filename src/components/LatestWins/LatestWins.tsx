@@ -4,35 +4,11 @@ import { PATHS } from "../../share/paths";
 import { WinnerCard } from "../winnerCard/winnerCard";
 import "./LatestWins.scss";
 import { apiContext } from "../../context/apiContext";
-
-
-// const mockWins = [
-//     { id: "1", image: "https://placehold.co", nameWinner: "Player123", cash: 250000, nameGame: "Book of Dead" },
-//     { id: "2", image: "https://placehold.co", nameWinner: "LuckyUser", cash: 180000, nameGame: "Sweet Bonanza" },
-//     { id: "3", image: "https://placehold.co", nameWinner: "GameMaster", cash: 120000, nameGame: "Fruit Cocktail" },
-//     { id: "4", image: "https://placehold.co", nameWinner: "Winner777", cash: 950000, nameGame: "Big Bass Bonanza" },
-//     { id: "5", image: "https://placehold.co", nameWinner: "AlexWin", cash: 80000, nameGame: "Starburst" },
-//     { id: "6", image: "https://placehold.co", nameWinner: "SlotQueen", cash: 310000, nameGame: "Gates of Olympus" },
-//     { id: "7", image: "https://placehold.co", nameWinner: "SpinDoctor", cash: 145000, nameGame: "Legacy of Dead" },
-//     { id: "8", image: "https://placehold.co", nameWinner: "MaxBetPro", cash: 520000, nameGame: "Razor Shark" },
-//     { id: "9", image: "https://placehold.co", nameWinner: "CryptoKing", cash: 89000, nameGame: "Plinko" },
-//     { id: "10", image: "https://placehold.co", nameWinner: "JackpotHunter", cash: 1250000, nameGame: "Crazy Time" },
-//     { id: "11", image: "https://placehold.co", nameWinner: "CrazySpins", cash: 210000, nameGame: "Sweet Bonanza" },
-//     { id: "12", image: "https://placehold.co", nameWinner: "GoldenTouch", cash: 75000, nameGame: "Book of Dead" },
-//     { id: "13", image: "https://placehold.co", nameWinner: "WildWolf", cash: 165000, nameGame: "Big Bass Bonanza" },
-//     { id: "14", image: "https://placehold.co", nameWinner: "FortuneSeeker", cash: 430000, nameGame: "Crazy Time" },
-//     { id: "15", image: "https://placehold.co", nameWinner: "ZeusGamer", cash: 285000, nameGame: "Gates of Olympus" },
-//     { id: "16", image: "https://placehold.co", nameWinner: "SugarRush", cash: 195000, nameGame: "Starburst" },
-//     { id: "17", image: "https://placehold.co", nameWinner: "CoinCollector", cash: 62000, nameGame: "Fruit Cocktail" },
-//     { id: "18", image: "https://placehold.co", nameWinner: "JokerUser", cash: 340000, nameGame: "Plinko" },
-//     { id: "19", image: "https://placehold.co", nameWinner: "SharkSpin", cash: 710000, nameGame: "Razor Shark" },
-//     { id: "20", image: "https://placehold.co", nameWinner: "VikingPower", cash: 115000, nameGame: "Legacy of Dead" }
-// ];
-
+import { createWinRecords } from "../../share/winnings";
 
 export const LatestWins = () => {
     const { usersData, gamesData } = useContext(apiContext)
-
+    const wins = createWinRecords(usersData, gamesData);
     const trackRef = useRef<HTMLDivElement>(null);
 
     const handleScroll = (direction: string) => {
@@ -75,20 +51,18 @@ export const LatestWins = () => {
                 </button>
 
                 <div className="latest-wins__track" ref={trackRef}>
-                    {usersData.map((win, index) => {
-                        const curentGame = gamesData[index % gamesData.length]
-                        const randomCash = Math.floor(10000 + Math.random() * 400000);
-
-                        return (
-                            <WinnerCard
-                                key={win.id}
-                                image={win.image}
-                                nameWinner={win.nameWinner}
-                                cash={randomCash}
-                                nameGame={curentGame.title}
-                            />
-                        )
-                    })}
+                    {wins.length > 0 ? wins.map((win) => (
+                        <WinnerCard
+                            key={win.id}
+                            winId={win.id}
+                            image={win.image}
+                            nameWinner={win.nameWinner}
+                            cash={win.cash}
+                            nameGame={win.game?.title ?? "Игра недоступна"}
+                        />
+                    )) : (
+                        <p className="latest-wins__empty">Выигрышей пока нет.</p>
+                    )}
                 </div>
 
                 <button
@@ -104,6 +78,5 @@ export const LatestWins = () => {
         </section>
     );
 };
-
 
 

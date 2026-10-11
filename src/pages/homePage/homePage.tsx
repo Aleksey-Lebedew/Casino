@@ -4,7 +4,7 @@ import { PromoCarouselSection } from "../../components/promo_carusel/PromoCarous
 
 
 export const HomePage = () => {
-    
+
     return (
         <>
             <PromoCarouselSection />
@@ -13,5 +13,4 @@ export const HomePage = () => {
         </>
     )
 }
-
 

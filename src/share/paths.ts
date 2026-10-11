@@ -5,6 +5,7 @@ export const PATHS = {
     games: () => '/games',
     game: (id: string) => `/game/${id}`,
     allWinnings: () => '/winnings',
+    winning: (id: string) => `/winnings/${id}`,
     profile: () => '/profile',
 
     // auth

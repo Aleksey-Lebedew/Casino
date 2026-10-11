@@ -1,0 +1,136 @@
+@use "../../style/variables.scss" as v;
+
+.winnings-page {
+  width: 100%;
+}
+
+.winnings-page__title {
+  margin: 0 0 v.$gap-lg;
+  color: v.$color-text-main;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.winnings-page__back {
+  display: inline-flex;
+  margin-bottom: v.$gap-lg;
+  color: v.$color-primary;
+  font-weight: 600;
+
+  &:focus-visible {
+    outline: 2px solid v.$color-primary;
+    outline-offset: 3px;
+  }
+}
+
+.winnings-page__empty {
+  margin: 0;
+  color: v.$color-text-muted;
+}
+
+.winnings-page__range {
+  margin: 0 0 v.$gap-md;
+  color: v.$color-text-muted;
+  font-size: 13px;
+}
+
+.winnings-page__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: v.$gap-md;
+
+  > .card {
+    width: 100%;
+    min-width: 0;
+  }
+
+  @media (max-width: (v.$breakpoint-mobile - 1px)) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.winnings-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: v.$gap-sm;
+  margin-top: v.$gap-xl;
+  padding-bottom: v.$gap-lg;
+}
+
+.winnings-pagination__pages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: v.$gap-xs;
+}
+
+.winnings-pagination__button {
+  display: inline-flex;
+  min-width: 36px;
+  min-height: 36px;
+  align-items: center;
+  justify-content: center;
+  padding: v.$gap-sm v.$gap-md;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius-sm;
+  background-color: v.$color-bg-card;
+  color: v.$color-text-main;
+  font-size: 13px;
+  font-weight: 600;
+
+  &:hover:not(:disabled) {
+    border-color: v.$color-primary;
+    background-color: v.$color-bg-card-hover;
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.55;
+  }
+
+  &[aria-current="page"] {
+    border-color: v.$color-primary;
+    background-color: v.$color-primary;
+    color: v.$color-bg-main;
+  }
+
+  &:focus-visible {
+    outline: 2px solid v.$color-primary;
+    outline-offset: 2px;
+  }
+}
+
+.winning-detail {
+  max-width: 560px;
+  padding: v.$gap-xl;
+  background: v.$color-bg-card;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius-main;
+}
+
+.winning-detail__field {
+  display: flex;
+  justify-content: space-between;
+  gap: v.$gap-md;
+  padding: v.$gap-md 0;
+  border-bottom: 1px solid v.$color-border;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  span {
+    color: v.$color-text-muted;
+  }
+
+  strong {
+    text-align: right;
+  }
+}
+
+.winning-detail__cash {
+  color: v.$color-primary;
+  font-size: 20px;
+}
