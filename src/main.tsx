@@ -5,9 +5,11 @@ import App from './App.tsx'
 import { BrowserRouter } from 'react-router-dom'
 import { ApiProvider } from './context/contextAPI.tsx'
 import { AuthProvider } from './context/authContext.tsx'
+import { BalanceProvider } from './context/balancecontext.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+    <BalanceProvider>
       <ApiProvider>
         <BrowserRouter>
           <AuthProvider>
@@ -15,5 +17,6 @@ createRoot(document.getElementById('root')!).render(
           </AuthProvider>
         </BrowserRouter>
       </ApiProvider>
+    </BalanceProvider>
   </StrictMode>,
 )

@@ -7,8 +7,10 @@ import {
     type LoginData,
 } from '../api/authAPi';
 import { AuthContext, type AuthLoginResult } from './authContextBase';
+import { useBalance } from '../hooks/useBalance';
 
 export function AuthProvider({ children }: { children: ReactNode }) {
+    const { removeBalance } = useBalance()
     const [user, setUser] = useState<AuthenticatedUser | null>(null);
     const [isLoading, setIsLoading] = useState(() => Boolean(localStorage.getItem('accessToken')));
     const [error, setError] = useState('');
@@ -71,6 +73,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         clearAuthTokens();
         setUser(null);
         setError('');
+        removeBalance();
     }
 
     return (

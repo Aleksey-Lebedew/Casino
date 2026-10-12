@@ -4,10 +4,15 @@ import RegisterForm from "../../components/RegisterForm/RegisterForm";
 import { ActivateAccountForm } from "../../components/ActivateAccountForm/ActivateAccountForm";
 import { useAuth } from "../../hooks/useAuth";
 import "./profilePage.scss";
+import { BalanceForm } from "../../components/BalanceForm/BalanceForm";
+import { useBalance } from "../../hooks/useBalance";
+import Button from "../../components/ui/button/button";
 
 export const ProfilePage = () => {
     const { user, isLoading, error, logout } = useAuth();
     const [searchParams, setSearchParams] = useSearchParams();
+    const { balance, addFunds, removeBalance } = useBalance();
+
     const authMode = searchParams.get("auth");
 
     const switchToLogin = () => setSearchParams({ auth: "login" });
@@ -54,6 +59,10 @@ export const ProfilePage = () => {
                         Выйти из аккаунта
                     </button>
                 </div>
+
+                <BalanceForm onSubmit={addFunds} />
+
+                <Button onClick={removeBalance} children={<p>remove Balance</p>}/>
             </section>
         );
     }

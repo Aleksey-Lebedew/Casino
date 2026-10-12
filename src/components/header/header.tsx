@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { PATHS } from "../../share/paths"
 import { useAuth } from "../../hooks/useAuth"
 import './header.scss'
+import { BalanceDisplay } from "../BalanceDisplay/BalanceDisplay"
 
 export const Header = () => {
     const { user, logout } = useAuth();
@@ -19,6 +20,7 @@ export const Header = () => {
                     <div className="header__auth">
                         {user ? (
                             <>
+                                <BalanceDisplay balance={0} />
                                 <span className="header__username">{user.username}</span>
                                 <button className="btn secondary md" type="button" onClick={logout}>
                                     Выйти
