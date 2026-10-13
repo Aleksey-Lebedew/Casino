@@ -63,7 +63,7 @@ export const GamePage = () => {
         );
     }
 
-    const cannotPlay = balance <= 0;
+    const cannotPlay = balance < 200;
 
     return (
         <div className="slot-game">
