@@ -31,7 +31,7 @@ export const GamePage = () => {
 
             setReels([reel1, reel2, reel3]);
 
-            if (reel1 === "👎" || reel2 === "👎" || reel3 === "👎") {
+            if (reel1 === "👎" && reel2 === "👎" && reel3 === "👎") {
                 setWinMessage("👎 ALL -- 👎");
                 removeBalance();
             } else if (reel1 === "7️⃣" && reel2 === "7️⃣" && reel3 === "7️⃣") {
