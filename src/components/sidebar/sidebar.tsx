@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
 import { PATHS } from "../../share/paths";
-import './sideBar.scss'
+import './sidebar.scss'
 
 const menuItems = [
     { id: 'main', label: 'Главная', path: PATHS.main },
