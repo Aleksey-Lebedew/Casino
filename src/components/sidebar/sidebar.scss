@@ -21,7 +21,11 @@
     width: min(84vw, 20rem);
     height: 100vh;
     height: 100dvh;
-    padding: 76px 16px 24px;
+    padding:
+      calc(76px + env(safe-area-inset-top, 0px))
+      calc(16px + env(safe-area-inset-right, 0px))
+      calc(24px + env(safe-area-inset-bottom, 0px))
+      calc(16px + env(safe-area-inset-left, 0px));
     border: 0;
     border-right: 1px solid v.$color-border;
     border-radius: 0 v.$radius-main v.$radius-main 0;

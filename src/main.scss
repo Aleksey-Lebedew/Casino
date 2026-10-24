@@ -109,12 +109,12 @@ button {
     width: 100%;
     max-width: v.$container-max-width;
     margin: 0 auto;
-    padding-left: v.$container-padding-desktop;
-    padding-right: v.$container-padding-desktop;
+    padding-left: calc(v.$container-padding-desktop + env(safe-area-inset-left, 0px));
+    padding-right: calc(v.$container-padding-desktop + env(safe-area-inset-right, 0px));
 
     @media (max-width: (v.$breakpoint-tablet - 1px)) {
-        padding-left: v.$container-padding-mobile;
-        padding-right: v.$container-padding-mobile;
+        padding-left: calc(v.$container-padding-mobile + env(safe-area-inset-left, 0px));
+        padding-right: calc(v.$container-padding-mobile + env(safe-area-inset-right, 0px));
     }
 }
 
