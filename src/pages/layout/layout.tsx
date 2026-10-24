@@ -1,10 +1,11 @@
 import { Outlet } from "react-router-dom"
 import { Header } from "../../components/header/header"
-import { Sidebar } from "../../components/sideBar/sidebar"
+import { Sidebar } from "../../components/sidebar/sidebar"
 import './layout.scss'
 
 export const Layout = () => {
     return (
+        <>
         <div className="app">
             <Header />
 
@@ -21,5 +22,6 @@ export const Layout = () => {
             </div>
 
         </div>
+        </>
     )
 }
