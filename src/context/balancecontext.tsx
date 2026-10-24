@@ -1,13 +1,5 @@
-import { createContext, useEffect, useState, type ReactNode } from 'react';
-
-export interface BalanceContextType {
-    balance: number;
-    addFunds: (amount: number) => void;
-    incrementBalance: (amount: number) => void;
-    dicrementBalance: (amount: number) => void;
-    removeBalance: () => void;
-}
-export const BalanceContext = createContext<BalanceContextType | undefined>(undefined);
+import { useEffect, useState, type ReactNode } from 'react';
+import { BalanceContext } from './balanceContextBase';
 
 export function BalanceProvider({ children }: { children: ReactNode }) {
     const [balance, setBalance] = useState(() => {

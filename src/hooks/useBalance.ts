@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { BalanceContext } from "../context/balancecontext"
+import { BalanceContext } from "../context/balanceContextBase"
 
 
 export const useBalance = () => {

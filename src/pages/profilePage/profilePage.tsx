@@ -11,7 +11,7 @@ import Button from "../../components/ui/button/button";
 export const ProfilePage = () => {
     const { user, isLoading, error, logout } = useAuth();
     const [searchParams, setSearchParams] = useSearchParams();
-    const { balance, addFunds, removeBalance } = useBalance();
+    const { addFunds, removeBalance } = useBalance();
 
     const authMode = searchParams.get("auth");
 

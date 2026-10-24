@@ -20,7 +20,7 @@ export const Header = () => {
                     <div className="header__auth">
                         {user ? (
                             <>
-                                <BalanceDisplay balance={0} />
+                                <BalanceDisplay />
                                 <span className="header__username">{user.username}</span>
                                 <button className="btn secondary md" type="button" onClick={logout}>
                                     Выйти
