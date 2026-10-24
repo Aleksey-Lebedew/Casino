@@ -5,7 +5,12 @@ import { useAuth } from "../../hooks/useAuth"
 import './header.scss'
 import { BalanceDisplay } from "../BalanceDisplay/BalanceDisplay"
 
-export const Header = () => {
+interface HeaderProps {
+    isMenuOpen: boolean;
+    onMenuToggle: () => void;
+}
+
+export const Header = ({ isMenuOpen, onMenuToggle }: HeaderProps) => {
     const { user, logout } = useAuth();
     const navigate = useNavigate();
 
@@ -13,6 +18,18 @@ export const Header = () => {
         <header className="header">
             <div className="container header__container" >
                 <Logo />
+                <button
+                    className={`header__menu-toggle${isMenuOpen ? " is-open" : ""}`}
+                    type="button"
+                    aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
+                    aria-expanded={isMenuOpen}
+                    aria-controls="primary-navigation"
+                    onClick={onMenuToggle}
+                >
+                    <span />
+                    <span />
+                    <span />
+                </button>
                 <div className="header_wrapper">
                     <Link className="btn secondary md header__profile-link" to={PATHS.profile()}>
                         Личный кабинет

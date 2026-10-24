@@ -22,7 +22,7 @@
 .profile-page__title {
   margin: 0 0 v.$gap-sm;
   color: v.$color-text-main;
-  font-size: 26px;
+  font-size: clamp(1.375rem, 3vw, 1.625rem);
   font-weight: 700;
 }
 
