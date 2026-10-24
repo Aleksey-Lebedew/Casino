@@ -116,6 +116,11 @@
             animation: textPulse 0.5s infinite alternate;
             color: #d4af37;
         }
+
+        &--negative {
+            color: #ff7777;
+            text-shadow: 0 0 8px rgba(255, 119, 119, 0.5);
+        }
     }
 }
 

@@ -40,3 +40,25 @@
     display: none;
   }
 }
+
+.header__username {
+  max-width: 180px;
+  overflow: hidden;
+  color: v.$color-text-main;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.header__mobile-auth {
+  display: none;
+  max-width: 120px;
+  overflow: hidden;
+  color: v.$color-primary;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  @media (max-width: (v.$breakpoint-tablet - 1px)) {
+    display: block;
+  }
+}

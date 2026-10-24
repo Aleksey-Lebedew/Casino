@@ -1,0 +1,52 @@
+@use "../../style/variables.scss" as v;
+
+.balance-form {
+    display: flex;
+    flex-direction: column;
+    gap: v.$gap-sm;
+    width: 100%;
+    padding: v.$gap-xl;
+    background-color: v.$color-bg-card;
+    border: 1px solid v.$color-border;
+    border-radius: v.$radius-main;
+}
+
+.balance-form__label {
+    color: v.$color-text-main;
+    font-weight: 600;
+}
+
+.balance-form__input {
+    width: 100%;
+    padding: v.$gap-md;
+    color: v.$color-text-main;
+    background-color: v.$color-bg-main;
+    border: 1px solid v.$color-border;
+    border-radius: v.$radius-sm;
+
+    &:focus {
+        border-color: v.$color-primary;
+    }
+
+    &[aria-invalid="true"] {
+        border-color: #e05252;
+    }
+}
+
+.balance-form__error {
+    color: #ff7777;
+    font-size: 13px;
+}
+
+.balance-form__submit {
+    margin-top: v.$gap-sm;
+    padding: v.$gap-md;
+    color: v.$color-bg-main;
+    font-weight: 700;
+    background-color: v.$color-primary;
+    border-radius: v.$radius-sm;
+
+    &:hover {
+        background-color: v.$color-primary-hover;
+    }
+}

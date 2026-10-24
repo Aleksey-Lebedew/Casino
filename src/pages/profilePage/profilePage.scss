@@ -2,6 +2,9 @@
 
 .profile-page {
   width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding-bottom: v.$gap-xxl;
 }
 
 .profile-page__header {
@@ -13,56 +16,228 @@
   color: v.$color-primary;
   font-size: 12px;
   font-weight: 700;
+  letter-spacing: 0.08em;
 }
 
 .profile-page__title {
   margin: 0 0 v.$gap-sm;
   color: v.$color-text-main;
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 700;
 }
 
 .profile-page__description,
-.profile-page__status-description {
+.profile-page__email {
   margin: 0;
   color: v.$color-text-muted;
   font-size: 14px;
   line-height: 1.5;
 }
 
-.profile-page__status {
+.profile-page__auth-card,
+.profile-page__card {
+  padding: v.$gap-xxl;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius-main;
+  background: v.$color-bg-card;
+}
+
+.profile-page__card {
   display: flex;
   align-items: center;
-  gap: v.$gap-lg;
-  padding: v.$gap-xl;
-  border: 1px solid v.$color-border;
-  border-radius: v.$radius-sm;
-  background: v.$color-bg-card;
+  gap: v.$gap-xl;
 }
 
 .profile-page__avatar {
   display: grid;
-  flex: 0 0 48px;
-  width: 48px;
-  height: 48px;
+  flex: 0 0 76px;
+  width: 76px;
+  height: 76px;
   place-items: center;
+  border: 2px solid rgba(v.$color-primary, 0.45);
   border-radius: 50%;
-  background: v.$color-bg-card-hover;
+  background: linear-gradient(145deg, v.$color-bg-card-hover, v.$color-bg-main);
   color: v.$color-text-gold;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
 }
 
-.profile-page__status-title {
+.profile-page__user-details {
+  min-width: 0;
+  flex: 1;
+}
+
+.profile-page__username {
+  margin: 0 0 v.$gap-xs;
+  overflow-wrap: anywhere;
+  color: v.$color-text-main;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.profile-page__logout {
+  flex: 0 0 auto;
+  padding: 10px 16px;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius-sm;
+  color: v.$color-text-muted;
+
+  &:hover {
+    border-color: v.$color-primary;
+    color: v.$color-text-main;
+  }
+}
+
+.profile-page__loading {
+  padding: v.$gap-xl 0;
+  color: v.$color-text-muted;
+}
+
+.profile-page__auth-error {
+  margin-bottom: v.$gap-lg;
+  color: #ff7b7b;
+}
+
+.auth-form {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.auth-form__title {
   margin: 0 0 v.$gap-xs;
   color: v.$color-text-main;
-  font-size: 16px;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.auth-form__description {
+  margin: 0 0 v.$gap-xl;
+  color: v.$color-text-muted;
+}
+
+.auth-form__fields {
+  display: flex;
+  flex-direction: column;
+  gap: v.$gap-lg;
+}
+
+.auth-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: v.$gap-xs;
+
+  label {
+    color: v.$color-text-main;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  input {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 1px solid v.$color-border;
+    border-radius: v.$radius-sm;
+    background: v.$color-bg-main;
+    color: v.$color-text-main;
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      border-color: v.$color-primary;
+    }
+
+    &::placeholder {
+      color: v.$color-text-muted;
+    }
+  }
+}
+
+.auth-form__field-error,
+.auth-form__message {
+  color: #ff7b7b;
+  font-size: 13px;
+}
+
+.auth-form__submit {
+  min-height: 44px;
+  padding: 10px 18px;
+  border-radius: v.$radius-sm;
+  background: v.$color-primary;
+  color: v.$color-bg-main;
+  font-weight: 700;
+
+  &:hover:not(:disabled) {
+    background: v.$color-primary-hover;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+.auth-form__message {
+  margin-top: v.$gap-md;
+}
+
+.auth-form__message--success {
+  color: v.$color-primary;
+}
+
+.auth-form__activation {
+  margin-top: v.$gap-md;
+}
+
+.auth-form__activation-button {
+  color: v.$color-primary;
+  font-size: 13px;
   font-weight: 600;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+
+  &:hover:not(:disabled) {
+    color: v.$color-primary-hover;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+.auth-form__activation-message {
+  margin-top: v.$gap-sm;
+  color: v.$color-text-muted;
+  font-size: 13px;
+}
+
+.auth-form__switch {
+  margin-top: v.$gap-xl;
+  color: v.$color-text-muted;
+
+  button {
+    color: v.$color-primary;
+    font-weight: 600;
+
+    &:hover {
+      color: v.$color-primary-hover;
+    }
+  }
 }
 
 @media (max-width: (v.$breakpoint-mobile - 1px)) {
-  .profile-page__status {
-    align-items: flex-start;
+  .profile-page__auth-card,
+  .profile-page__card {
     padding: v.$gap-lg;
+  }
+
+  .profile-page__card {
+    flex-wrap: wrap;
+  }
+
+  .profile-page__logout {
+    width: 100%;
   }
 }

@@ -4,13 +4,19 @@ import './main.scss'
 import App from './App.tsx'
 import { BrowserRouter } from 'react-router-dom'
 import { ApiProvider } from './context/contextAPI.tsx'
+import { AuthProvider } from './context/authContext.tsx'
+import { BalanceProvider } from './context/balancecontext.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+    <BalanceProvider>
       <ApiProvider>
         <BrowserRouter>
-          <App />
+          <AuthProvider>
+            <App />
+          </AuthProvider>
         </BrowserRouter>
       </ApiProvider>
+    </BalanceProvider>
   </StrictMode>,
 )

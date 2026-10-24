@@ -1,0 +1,26 @@
+@use "../../style/variables.scss" as v;
+
+.balance-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: v.$gap-sm;
+    width: 100%;
+    padding: v.$gap-xl;
+    background-color: v.$color-bg-card;
+    border: 1px solid v.$color-border;
+    border-radius: v.$radius-main;
+    font-size: 20px;
+}
+
+.balance-display__label {
+    color: v.$color-text-muted;
+    font-weight: 600;
+}
+
+.balance-display__amount {
+    color: v.$color-text-gold;
+    font-weight: 700;
+    line-height: 1.2;
+    // overflow-wrap: anywhere;
+}
