@@ -1,0 +1,195 @@
+@use "../../style/variables.scss" as v;
+
+.five-diamonds {
+    display: flex;
+    flex-direction: column;
+    gap: v.$gap-lg;
+    width: 100%;
+    padding-bottom: v.$gap-xl;
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: v.$gap-md;
+    }
+
+    &__title {
+        color: v.$color-text-main;
+        font-size: clamp(24px, 4vw, 32px);
+        line-height: 1.2;
+    }
+
+    &__subtitle,
+    &__hint {
+        color: v.$color-text-muted;
+    }
+
+    &__panel {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: v.$gap-lg;
+        padding: clamp(16px, 4vw, 32px);
+        background: v.$color-bg-card;
+        border: 1px solid v.$color-border;
+        border-radius: v.$radius-main;
+    }
+
+    &__controls,
+    &__stats {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: v.$gap-lg;
+        width: min(100%, 34rem);
+    }
+
+    &__bet {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: v.$gap-xs;
+        color: v.$color-text-muted;
+        font-weight: 600;
+
+        input {
+            width: 100%;
+            min-height: 42px;
+            padding: 0 v.$gap-md;
+            color: v.$color-text-main;
+            background: v.$color-bg-main;
+            border: 1px solid v.$color-border;
+            border-radius: v.$radius-sm;
+
+            &:focus {
+                border-color: v.$color-primary;
+            }
+
+            &:disabled {
+                opacity: 0.65;
+            }
+        }
+    }
+
+    &__balance {
+        padding-bottom: v.$gap-sm;
+        color: v.$color-text-muted;
+        white-space: nowrap;
+
+        strong {
+            color: v.$color-text-gold;
+        }
+    }
+
+    &__stats {
+        align-items: center;
+        color: v.$color-text-muted;
+
+        strong {
+            color: v.$color-text-main;
+        }
+    }
+
+    &__lives {
+        display: flex;
+        gap: v.$gap-xs;
+    }
+
+    &__life {
+        transition: opacity 0.2s ease, filter 0.2s ease;
+
+        &--lost {
+            opacity: 0.3;
+            filter: grayscale(1);
+        }
+    }
+
+    &__board {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: clamp(6px, 1.5vw, 12px);
+        width: min(100%, 34rem);
+    }
+
+    &__cell {
+        display: grid;
+        place-items: center;
+        aspect-ratio: 1;
+        min-width: 0;
+        color: v.$color-text-main;
+        font-size: clamp(20px, 5vw, 36px);
+        background: v.$color-bg-main;
+        border: 1px solid v.$color-border;
+        border-radius: v.$radius-sm;
+        transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+
+        &:hover:not(:disabled) {
+            background: v.$color-bg-card-hover;
+            border-color: v.$color-primary;
+            transform: translateY(-2px);
+        }
+
+        &:disabled:not(.five-diamonds__cell--revealed) {
+            cursor: default;
+        }
+
+        &--revealed {
+            cursor: default;
+        }
+
+        &--auto-revealed {
+            opacity: 0.55;
+        }
+
+        &--diamond {
+            background: #12382e;
+            border-color: v.$color-primary;
+        }
+
+        &--bomb {
+            background: #3a222a;
+            border-color: #e05252;
+        }
+    }
+
+    &__message {
+        min-height: 24px;
+        color: v.$color-text-muted;
+        text-align: center;
+
+        &--won {
+            color: v.$color-primary;
+            font-weight: 700;
+        }
+
+        &--lost {
+            color: #ff7777;
+            font-weight: 700;
+        }
+    }
+
+    .btn {
+        width: min(100%, 18rem);
+    }
+
+    &__hint {
+        margin-top: calc(-1 * v.$gap-md);
+        font-size: 12px;
+        text-align: center;
+    }
+}
+
+@media (max-width: v.$breakpoint-mobile) {
+    .five-diamonds {
+        &__controls {
+            align-items: stretch;
+            flex-direction: column;
+            gap: v.$gap-sm;
+        }
+
+        &__balance {
+            padding-bottom: 0;
+        }
+    }
+}

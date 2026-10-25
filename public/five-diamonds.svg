@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="360" viewBox="0 0 600 360" fill="none">
+  <defs>
+    <linearGradient id="background" x1="24" y1="12" x2="576" y2="348" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#21293D"/>
+      <stop offset="1" stop-color="#131926"/>
+    </linearGradient>
+    <linearGradient id="gem" x1="259" y1="93" x2="348" y2="223" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A5F3FC"/>
+      <stop offset=".52" stop-color="#19CC7E"/>
+      <stop offset="1" stop-color="#1E6BF2"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" rx="24" fill="url(#background)"/>
+  <g fill="#262F45" stroke="#38445F" stroke-width="3">
+    <rect x="56" y="52" width="62" height="62" rx="12"/>
+    <rect x="136" y="52" width="62" height="62" rx="12"/>
+    <rect x="402" y="52" width="62" height="62" rx="12"/>
+    <rect x="482" y="52" width="62" height="62" rx="12"/>
+    <rect x="56" y="132" width="62" height="62" rx="12"/>
+    <rect x="482" y="132" width="62" height="62" rx="12"/>
+    <rect x="56" y="212" width="62" height="62" rx="12"/>
+    <rect x="136" y="212" width="62" height="62" rx="12"/>
+    <rect x="402" y="212" width="62" height="62" rx="12"/>
+    <rect x="482" y="212" width="62" height="62" rx="12"/>
+  </g>
+  <path d="M300 63 355 121 331 210 269 210 245 121 300 63Z" fill="url(#gem)" stroke="#CFFAFE" stroke-width="5" stroke-linejoin="round"/>
+  <path d="m245 121 55 20 55-20M300 141v69m-55-89 31-27m79 27-31-27" stroke="#E6FFFB" stroke-opacity=".8" stroke-width="4" stroke-linejoin="round"/>
+  <text x="300" y="300" fill="#FFBE2E" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800" letter-spacing="3" text-anchor="middle">5 АЛМАЗОВ</text>
+  <text x="300" y="330" fill="#A9B5C9" font-family="Inter, Arial, sans-serif" font-size="14" text-anchor="middle">3 жизни • выплата x2</text>
+</svg>
