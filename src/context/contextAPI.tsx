@@ -1,6 +1,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { fetchGames, fetchUser, type ApiGame, type ApiUser } from "../api/api";
 import { Loader } from "../components/loader/loader";
+import { FIVE_DIAMONDS_GAME } from "../share/games";
 import { apiContext } from "./apiContext";
 
 export function ApiProvider({ children }: { children: ReactNode }) {
@@ -15,7 +16,10 @@ export function ApiProvider({ children }: { children: ReactNode }) {
             .then(([serverUsers, serverGames]) => {
                 if (!isActive) return;
                 setUsers(serverUsers);
-                setGames(serverGames);
+                setGames([
+                    ...serverGames.filter((game) => game.id !== FIVE_DIAMONDS_GAME.id),
+                    FIVE_DIAMONDS_GAME,
+                ]);
             })
             .finally(() => {
                 if (isActive) setIsLoading(false);

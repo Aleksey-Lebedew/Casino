@@ -4,6 +4,7 @@ import { PATHS } from './share/paths'
 import { HomePage } from './pages/homePage/homePage'
 import { Layout } from './pages/layout/layout'
 import { GamePage } from './pages/gamePage/gamePage'
+import { FiveDiamondsPage } from './pages/fiveDiamondsPage/fiveDiamondsPage'
 import { GamesPage } from './pages/gamesPage/gamesPage'
 import { ProfilePage } from './pages/profilePage/profilePage'
 import { WinningsPage } from './pages/winningsPage/winningsPage'
@@ -16,6 +17,7 @@ function App() {
         <Route element={<Layout />} >
           <Route index element={<HomeRoute />} />
           <Route path={PATHS.games()} element={<GamesPage />} />
+          <Route path={PATHS.game('five-diamonds')} element={<FiveDiamondsPage />} />
           <Route path={PATHS.game(':id')} element={<GamePage />} />
           <Route path={PATHS.allWinnings()} element={<WinningsPage />} />
           <Route path={PATHS.winning(':id')} element={<WinningsPage />} />

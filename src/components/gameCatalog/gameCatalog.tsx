@@ -10,6 +10,7 @@ interface GameCatalogProps {
     limit?: number;
     showAllLink?: boolean;
     headingLevel?: "h1" | "h2";
+    additionalPlayableGameIds?: string[];
 }
 
 const getGameImage = (image: string | undefined, gameId: string) => {
@@ -26,6 +27,7 @@ export const GameCatalog = ({
     limit,
     showAllLink = false,
     headingLevel = "h2",
+    additionalPlayableGameIds = [],
 }: GameCatalogProps) => {
     const visibleGames = limit === undefined ? games : games.slice(0, limit);
     const playableGameId = games[0]?.id;
@@ -49,7 +51,8 @@ export const GameCatalog = ({
             ) : (
                 <div className="game-catalog__grid">
                     {visibleGames.map((game) => {
-                        const isPlayable = game.id === playableGameId;
+                        const isPlayable = game.id === playableGameId
+                            || additionalPlayableGameIds.includes(game.id);
 
                         return (
                             <GameCard
